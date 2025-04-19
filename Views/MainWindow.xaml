@@ -1,0 +1,24 @@
+<Window x:Class="MarkdownEditor.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:avalon="http://icsharpcode.net/sharpdevelop/avalonedit"
+        xmlns:local="clr-namespace:MarkfownEditor.Views">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" /> <!-- Editor -->
+            <ColumnDefinition Width="*" /> <!-- Preview-->
+            <ColumnDefinition Width="*" /> <!-- A4 Page -->
+        </Grid.ColumnDefinitions>
+        
+        <!-- Markdown Editor-->
+        <avalon:TextEditor Grid.Column="0"
+                           SyntaxHighlighting="MarkDown"
+                           Text="{Binding MarkdownText, UpdateSourceTrigger=PropertyChanged}" />
+        
+        <!-- HTML Preview -->
+        <local:HtmlPreview Grid.Column="1" />
+        
+        <!-- A4 Page Previrw -->
+        <local:A4PagePreview Grid.Column="2" />
+    </Grid>
+</Window>
